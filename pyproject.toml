@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "timestamp"
+version = "1.0.0"
+description = "View and compare Discord snowflakes in Discord itself with OG embeds"
+authors = ["vcokltfre <vcokltfre@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.63.0"
+uvicorn = "^0.13.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
