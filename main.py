@@ -60,7 +60,7 @@ async def get_sf(snowflake_1: int, snowflake_2: int):
     desc += f"{getsfdata(sf2)}\n\n"
     desc += f"Difference:\n"
     desc += f"{humanize.naturaldelta(diff)}\n"
-    desc += f"{timedelta(seconds=diff)}"
+    desc += f"{timedelta(seconds=diff)}\n"
     desc += f"{diff}s"
     rb.addtag("description", desc)
     rb.addtag("url", "https://vcokltf.re")
