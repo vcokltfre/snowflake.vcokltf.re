@@ -50,6 +50,8 @@ async def get_sf(snowflake_1: int, snowflake_2: int):
     sf1 = deconstruct(snowflake_1)
     sf2 = deconstruct(snowflake_2)
 
+    diff = (max(sf1.timestamp, sf2.timestamp) // 1000) - (min(sf1.timestamp, sf2.timestamp) // 1000)
+
     rb = ResponseBuilder()
     rb.addtag("title", f"Compare: {snowflake_1} | {snowflake_2}")
     desc = f"Data for {snowflake_1}:\n"
@@ -57,7 +59,9 @@ async def get_sf(snowflake_1: int, snowflake_2: int):
     desc += f"Data for {snowflake_2}:\n"
     desc += f"{getsfdata(sf2)}\n\n"
     desc += f"Difference:\n"
-    desc += f"{humanize.naturaldelta((max(sf1.timestamp, sf2.timestamp) // 1000) - (min(sf1.timestamp, sf2.timestamp) // 1000))}"
+    desc += f"{humanize.naturaldelta(diff)}\n"
+    desc += f"{timedelta(seconds=diff)}"
+    desc += f"{diff}s"
     rb.addtag("description", desc)
     rb.addtag("url", "https://vcokltf.re")
 
